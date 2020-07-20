@@ -46,7 +46,8 @@ pipeline {
 	    mkdir target
 	    mv example-0.0.1-SNAPSHOT.jar target
 	    cd target
-            nohup java -jar example-0.0.1-SNAPSHOT.jar & '
+            nohup java -jar example-0.0.1-SNAPSHOT.jar & 
+	    exit '
             '''
       	 }
        }
