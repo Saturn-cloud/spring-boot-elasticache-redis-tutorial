@@ -40,7 +40,8 @@ pipeline {
 	    sh '''
             sudo scp -i /home/ec2-user/.ssh/first_keys /tmp/placeholder/spring-boot-elasticache-redis-tutorial/target/example-0.0.1-SNAPSHOT.jar ec2-user@3.8.84.15:/tmp/
 	    sudo ssh -i /home/ec2-user/.ssh/first_keys ec2-user@3.8.84.15 '
-            cd /tmp/
+            pkill java
+	    cd /tmp/
 	    rm -rf target || true
 	    mkdir target
 	    cp example-0.0.1-SNAPSHOT.jar target
