@@ -42,7 +42,7 @@ pipeline {
 	    sudo ssh -i /home/ec2-user/.ssh/first_keys ec2-user@3.8.84.15 '
 	    sudo pkill java || true
 	    cd /tmp/
-	    rm -rf target || true
+	    rm -rf target/ || true
 	    mkdir target
 	    mv example-0.0.1-SNAPSHOT.jar target
 	    cd target
@@ -54,8 +54,8 @@ pipeline {
          steps {
             echo 'Removing used files and folders'
 	    sh '''
-	         cd /tmp/
-	         sudo rm -rf placeholder/
+	    cd /tmp/
+	    sudo rm -rf placeholder/
           '''
       	 }
        }
