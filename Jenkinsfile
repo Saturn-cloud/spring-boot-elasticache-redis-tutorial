@@ -39,12 +39,12 @@ pipeline {
             echo 'Deploying code to Redis-server'
 	    sh '''
             sudo scp -i /home/ec2-user/.ssh/first_keys /tmp/placeholder/spring-boot-elasticache-redis-tutorial/target/example-0.0.1-SNAPSHOT.jar ec2-user@3.8.84.15:/tmp/
-	    sudo ssh -tt -i /home/ec2-user/.ssh/first_keys ec2-user@3.8.84.15 '
+	    sudo ssh -i /home/ec2-user/.ssh/first_keys ec2-user@3.8.84.15 '
 	    sudo pkill java || true
 	    cd /tmp/
 	    rm -rf target || true
 	    mkdir target
-	    cp example-0.0.1-SNAPSHOT.jar target
+	    mv example-0.0.1-SNAPSHOT.jar target
 	    cd target
             nohup java -jar example-0.0.1-SNAPSHOT.jar & '
             '''
